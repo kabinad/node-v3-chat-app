@@ -21,16 +21,18 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    sourceFolder: '$(Build.SourcesDirectory)' #For some reason, I think we need to hard-code this.
+    sourceFolder: '$(Build.SourcesDirectory)'
     targetFolder: '$(Build.ArtifactStagingDirectory)'
   displayName: 'Copy Files to Staging Directory'
 
-- task: PublishPipelineArtifact@0
+- task: PublishPipelineArtifact@1
   displayName: 'Publish Staged Artifacts'
   inputs:
     targetPath: '$(Build.ArtifactStagingDirectory)'
+    artifact: 'drop'
+    publishLocation: 'pipeline'
   condition: eq(variables['Build.SourceBranch'], 'refs/heads/master')
 
-- script: 
-    npm run Build
-  displayName: 'npm build'
+# - script: 
+#     npm run Build
+#   displayName: 'npm build'
