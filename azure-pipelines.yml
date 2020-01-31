@@ -31,6 +31,7 @@ steps:
     targetPath: '$(Build.ArtifactStagingDirectory)'
   condition: eq(variables['Build.SourceBranch'], 'refs/heads/master')
 
-- script: 
-    npm run Build
-  displayName: 'npm build'
+
+# - script: 
+#     npm run Build
+#   displayName: 'npm build'
