@@ -1,1 +1,5 @@
 node_modules
+
+# User-specific files
+.vs/ 
+.vs/slnx.sqlite
