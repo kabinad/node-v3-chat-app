@@ -21,11 +21,8 @@ steps:
     echo "hello world"
     echo '$(Build.SourcesDirectory)'
   displayName: 'npm install'
-- task: PublishTestResults@2
-  inputs:
-    testResultsFormat: 'JUnit'
-    testResultsFiles: '**/TEST-*.xml'
-    mergeTestResults: true
+
+- script: npm test
 - task: CopyFiles@2
   inputs:
     sourceFolder: '$(Build.SourcesDirectory)'
