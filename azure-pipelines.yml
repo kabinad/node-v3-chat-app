@@ -22,7 +22,10 @@ steps:
     echo '$(Build.SourcesDirectory)'
   displayName: 'npm install'
 
-- script: npm test
+- script: |
+    npm test
+    echo '$(Build.SourcesDirectory)'
+    ls
 - task: PublishTestResults@2
   condition: succeededOrFailed()
   inputs:
